@@ -1,0 +1,15 @@
+PS>
+
+source ./ref
+
+az network vnet create /
+--$vnetname /
+--g-UNIBIC /
+--address-prefixes 10.0.2.0/20 /
+--location japaneast /
+--subnet-name subnetcli1 /
+--subnet-prefix 10.0.2.0/22 /
+
+
+--subnet
+-- ae
