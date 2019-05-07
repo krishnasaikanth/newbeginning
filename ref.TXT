@@ -1,0 +1,3 @@
+$name=$name
+$MyVariable="Green Cat"ref
+$vnetname=$clivnet

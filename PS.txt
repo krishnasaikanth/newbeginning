@@ -1,0 +1,40 @@
+$1="japaneast"
+$2="clivnet"
+$3="clisubnet"
+$4=="clinsg"
+$5=="clinsgrule"
+$6='clilab'
+$7="vmclibal2"
+
+#az login - loin to az
+
+#create a virtual network
+
+#!/bin/bash
+
+az network vnet create -name $2\
+--resource-group unibic\
+--location $1\
+--subnet -name $3\
+--subnet-prefixes 10.2.0.0/16
+#crate a nsg
+az network nsg create\
+--name $4\
+--resource-group unibic\
+--access allow\
+--priority 150\
+--source-port-range *\
+--protocol tcp\
+--direction inbound\
+--destination-port 22
+--source-address-prefixes *\
+--dstiation-address-prefixes \
+
+az lab vm create --lab-name $6\
+--g-unibic\
+--name--$7\
+--admin-username clilabuser\
+--adin-password passwordcli\
+--size standard_ds1_vs\
+-image "Ubuntu Servr 16.04 LTS\
+--ip-configuration public\
